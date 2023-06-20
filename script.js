@@ -48,6 +48,70 @@ function listenersButtons() {
         }
     });
 
+    btn2.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '2';
+        } else {
+            currentOperation.innerHTML += '2';
+        }
+    });
+
+    btn3.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '2';
+        } else {
+            currentOperation.innerHTML += '3';
+        }
+    });
+
+    btn4.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '4';
+        } else {
+            currentOperation.innerHTML += '4';
+        }
+    });
+
+    btn5.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '5';
+        } else {
+            currentOperation.innerHTML += '5';
+        }
+    });
+
+    btn6.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '6';
+        } else {
+            currentOperation.innerHTML += '6';
+        }
+    });
+
+    btn7.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '7';
+        } else {
+            currentOperation.innerHTML += '7';
+        }
+    });
+
+    btn8.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '8';
+        } else {
+            currentOperation.innerHTML += '8';
+        }
+    });
+
+    btn9.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '9';
+        } else {
+            currentOperation.innerHTML += '9';
+        }
+    });
+
 }
 
 function add(a, b) {
