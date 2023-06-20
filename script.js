@@ -34,11 +34,18 @@ function listenersButtons() {
         }
     });
 
-
     btn0.addEventListener('click', () => {
         if(currentOperation.innerHTML != '0') {
             currentOperation.innerHTML += '0';
         } 
+    });
+
+    btn1.addEventListener('click', () => {
+        if(currentOperation.innerHTML == '0') {
+            currentOperation.innerHTML = '1';
+        } else {
+            currentOperation.innerHTML += '1';
+        }
     });
 
 }
