@@ -48,7 +48,6 @@ function listenersButtons() {
         }
     });
 
-
     btn0.addEventListener('click', () => {
         if(currentNumberObj.innerHTML != '0') {
             currentNumberObj.innerHTML += '0';
@@ -136,6 +135,15 @@ function listenersButtons() {
         currentNumberObj.innerHTML = '0';
     });
 
+    btnSub.addEventListener('click', () => {
+        firstNumber = getCurrentNumber();
+        currentOperator = '-';
+        updateHistory(firstNumber, '-');
+
+        // TYMCZASOWO USUWA SIĘ OD RAZU
+        currentNumberObj.innerHTML = '0';
+    });
+
     btnEqual.addEventListener('click', () => {
         secondNumber = getCurrentNumber();
         operate();
@@ -143,9 +151,8 @@ function listenersButtons() {
 }
 
 function updateHistory(number, operator) {
-    if (operator == '+') 
-        historyNumberObj.innerHTML = `${number} +`;
-    // else if (operator == '-')
+    if (operator == '+') historyNumberObj.innerHTML = `${number} +`;
+    else if (operator == '-') historyNumberObj.innerHTML = `${number} -`;
 }
 
 function deleteHistory() {
@@ -175,8 +182,11 @@ function divide(a, b) {
 
 function operate() {
 
-    if(currentOperator == '+') {
-        currentNumberObj.innerHTML = `${add(firstNumber, secondNumber)}`
+    if (currentOperator == '+') {
+        currentNumberObj.innerHTML = `${add(firstNumber, secondNumber)}`;
+        deleteHistory();
+    } else if (currentOperator == '-') {
+        currentNumberObj.innerHTML = `${subtract(firstNumber, secondNumber)}`;
         deleteHistory();
     }
 }
