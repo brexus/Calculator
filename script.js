@@ -153,6 +153,15 @@ function listenersButtons() {
         currentNumberObj.innerHTML = '0';
     });
 
+    btnDiv.addEventListener('click', () => {
+        firstNumber = getCurrentNumber();
+        currentOperator = '/';
+        updateHistory(firstNumber, '/');
+
+        // TYMCZASOWO USUWA SIĘ OD RAZU
+        currentNumberObj.innerHTML = '0';
+    });
+
     btnEqual.addEventListener('click', () => {
         secondNumber = getCurrentNumber();
         operate();
@@ -163,6 +172,7 @@ function updateHistory(number, operator) {
     if (operator == '+') historyNumberObj.innerHTML = `${number} +`;
     else if (operator == '-') historyNumberObj.innerHTML = `${number} -`;
     else if (operator == '*') historyNumberObj.innerHTML = `${number} x`;
+    else if (operator == '/') historyNumberObj.innerHTML = `${number} ÷`;
 }
 
 function deleteHistory() {
@@ -200,6 +210,9 @@ function operate() {
         deleteHistory();
     } else if (currentOperator == '*') {
         currentNumberObj.innerHTML = `${multiply(firstNumber, secondNumber)}`;
+        deleteHistory();
+    } else if (currentOperator == '/') {
+        currentNumberObj.innerHTML = `${divide(firstNumber, secondNumber)}`;
         deleteHistory();
     }
 }
