@@ -17,102 +17,141 @@ const btnDiv = document.getElementById('divide');
 const btnEqual = document.getElementById('equal');
 const btnDot = document.getElementById('dot');
 
-const currentOperation = document.getElementById('current-operation');
-const lastOperation = document.getElementById('last-operation');
+const currentNumberObj = document.getElementById('current-number');
+const historyNumberObj = document.getElementById('history-number');
 
+let currentOperator = '';
+let lastOperator = '';
+
+let firstNumber = 0;
+let secondNumber = 0;
+
+function updateCurrentNumber(a) {
+    document.getElementById('current-number').innerHTML = `${a}`;
+}
+
+function getCurrentNumber() {
+    return parseInt(currentNumberObj.innerHTML);
+}
 
 function listenersButtons() {
     btnDEL.addEventListener('click', () => {
-        currentOperation.innerHTML = '0';
+        currentNumberObj.innerHTML = '0';
+        deleteHistory();
     });
 
     btnCLR.addEventListener('click', () => {
-        if (currentOperation.innerHTML >= 0 && currentOperation.innerHTML <= 9) {
-            currentOperation.innerHTML = '0';
-        } else if (currentOperation.innerHTML != '0') {
-            currentOperation.innerHTML = currentOperation.innerHTML.slice(0,-1);
+        if (currentNumberObj.innerHTML >= 0 && currentNumberObj.innerHTML <= 9) {
+            currentNumberObj.innerHTML = '0';
+        } else if (currentNumberObj.innerHTML != '0') {
+            currentNumberObj.innerHTML = currentNumberObj.innerHTML.slice(0,-1);
         }
     });
 
+
     btn0.addEventListener('click', () => {
-        if(currentOperation.innerHTML != '0') {
-            currentOperation.innerHTML += '0';
+        if(currentNumberObj.innerHTML != '0') {
+            currentNumberObj.innerHTML += '0';
         } 
     });
 
     btn1.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '1';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '1';
         } else {
-            currentOperation.innerHTML += '1';
+            currentNumberObj.innerHTML += '1';
         }
     });
 
     btn2.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '2';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '2';
         } else {
-            currentOperation.innerHTML += '2';
+            currentNumberObj.innerHTML += '2';
         }
     });
 
     btn3.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '2';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '3';
         } else {
-            currentOperation.innerHTML += '3';
+            currentNumberObj.innerHTML += '3';
         }
     });
 
     btn4.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '4';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '4';
         } else {
-            currentOperation.innerHTML += '4';
+            currentNumberObj.innerHTML += '4';
         }
     });
 
     btn5.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '5';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '5';
         } else {
-            currentOperation.innerHTML += '5';
+            currentNumberObj.innerHTML += '5';
         }
     });
 
     btn6.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '6';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '6';
         } else {
-            currentOperation.innerHTML += '6';
+            currentNumberObj.innerHTML += '6';
         }
     });
 
     btn7.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '7';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '7';
         } else {
-            currentOperation.innerHTML += '7';
+            currentNumberObj.innerHTML += '7';
         }
     });
 
     btn8.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '8';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '8';
         } else {
-            currentOperation.innerHTML += '8';
+            currentNumberObj.innerHTML += '8';
         }
     });
 
     btn9.addEventListener('click', () => {
-        if(currentOperation.innerHTML == '0') {
-            currentOperation.innerHTML = '9';
+        if(currentNumberObj.innerHTML == '0') {
+            currentNumberObj.innerHTML = '9';
         } else {
-            currentOperation.innerHTML += '9';
+            currentNumberObj.innerHTML += '9';
         }
     });
 
+    btnAdd.addEventListener('click', () => {
+        firstNumber = getCurrentNumber();
+        currentOperator = '+';
+        updateHistory(firstNumber, '+');
+
+        // TYMCZASOWO USUWA SIĘ OD RAZU
+        currentNumberObj.innerHTML = '0';
+    });
+
+    btnEqual.addEventListener('click', () => {
+        secondNumber = getCurrentNumber();
+        operate();
+    });
 }
+
+function updateHistory(number, operator) {
+    if (operator == '+') 
+        historyNumberObj.innerHTML = `${number} +`;
+    // else if (operator == '-')
+}
+
+function deleteHistory() {
+    historyNumberObj.innerHTML = '';
+}
+
 
 function add(a, b) {
     return a + b;
@@ -134,13 +173,19 @@ function divide(a, b) {
     }
 }
 
-function operate(operation, a, b) {
+function operate() {
 
+    if(currentOperator == '+') {
+        currentNumberObj.innerHTML = `${add(firstNumber, secondNumber)}`
+        deleteHistory();
+    }
 }
 
 function runCalculator() {
     listenersButtons();
+
 }
 
 
 runCalculator();
+
