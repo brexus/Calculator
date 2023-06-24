@@ -26,6 +26,8 @@ let lastOperator = '';
 let firstNumber = 0;
 let secondNumber = 0;
 
+let shouldReplaceNumbers = false;
+
 function updateCurrentNumber(a) {
     document.getElementById('current-number').innerHTML = `${a}`;
 }
@@ -55,72 +57,82 @@ function listenersButtons() {
     });
 
     btn1.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '1';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '1';
         }
+        
     });
 
     btn2.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '2';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '2';
         }
     });
 
     btn3.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '3';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '3';
         }
     });
 
     btn4.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '4';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '4';
         }
     });
 
     btn5.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '5';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '5';
         }
     });
 
     btn6.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '6';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '6';
         }
     });
 
     btn7.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '7';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '7';
         }
     });
 
     btn8.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '8';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '8';
         }
     });
 
     btn9.addEventListener('click', () => {
-        if(currentNumberObj.innerHTML == '0') {
+        if(currentNumberObj.innerHTML == '0' || shouldReplaceNumbers == true) {
             currentNumberObj.innerHTML = '9';
+            shouldReplaceNumbers = false;
         } else {
             currentNumberObj.innerHTML += '9';
         }
@@ -132,7 +144,8 @@ function listenersButtons() {
         updateHistory(firstNumber, '+');
 
         // TYMCZASOWO USUWA SIĘ OD RAZU
-        currentNumberObj.innerHTML = '0';
+        // currentNumberObj.innerHTML = '0';
+        shouldReplaceNumbers = true;
     });
 
     btnSub.addEventListener('click', () => {
@@ -141,7 +154,8 @@ function listenersButtons() {
         updateHistory(firstNumber, '-');
 
         // TYMCZASOWO USUWA SIĘ OD RAZU
-        currentNumberObj.innerHTML = '0';
+        // currentNumberObj.innerHTML = '0';
+        shouldReplaceNumbers = true;
     });
 
     btnMul.addEventListener('click', () => {
@@ -150,21 +164,21 @@ function listenersButtons() {
         updateHistory(firstNumber, '*');
 
         // TYMCZASOWO USUWA SIĘ OD RAZU
-        currentNumberObj.innerHTML = '0';
+        // currentNumberObj.innerHTML = '0';
+        shouldReplaceNumbers = true;
     });
 
     btnDiv.addEventListener('click', () => {
         firstNumber = getCurrentNumber();
         currentOperator = '/';
         updateHistory(firstNumber, '/');
-
-        // TYMCZASOWO USUWA SIĘ OD RAZU
-        currentNumberObj.innerHTML = '0';
+        shouldReplaceNumbers = true;
     });
 
     btnEqual.addEventListener('click', () => {
         secondNumber = getCurrentNumber();
         operate();
+        shouldReplaceNumbers = true;
     });
 }
 
