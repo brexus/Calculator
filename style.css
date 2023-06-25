@@ -24,7 +24,6 @@
     width: 20em;
     height: 500px;
     padding: 2em;
-
 }
 
 #screen {
@@ -32,7 +31,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
-    
     background-color: rgb(206, 206, 206);
     height: 140px;
 }
@@ -40,13 +38,18 @@
 .screen-subcontainer {
     height: 70px;
     padding: 1rem 1rem 0 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
 }
 
 #history-number {
     color: rgb(70, 70, 70);
     font-size: 1.2rem;
+}
+
+.small-icon {
+    width: 25px;
+    padding-right: 7px;
 }
 
 
@@ -68,18 +71,22 @@
     border: 0;
 }
 
+.btn-clr, .btn-del {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn-clr {
     grid-column-start: 1;
     grid-column-end: 3;
-    height: 100%;
 }
 
 .btn-del {
     grid-column-start: 3;
     grid-column-end: 5;
-    height: 100%;
 }
-
 
 /* BUTTONS HOVER */
 .btn-number:hover {
@@ -107,16 +114,12 @@
     background-color: rgb(12, 141, 0);
 }
 
-.btn-clr:hover {
+.btn-clr:hover, .btn-del:hover{
     background-color: rgb(255, 50, 50);
-}
-
-.btn-del:hover {
-    background-color: rgb(255, 50, 50);
+    color: white;
 }
 
 .border {
-    /* border: 2px solid black; */
     border-radius: 1em;
 }
 
