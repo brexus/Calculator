@@ -1,15 +1,15 @@
 const btnCLR = document.getElementById('clr');
 const btnDEL = document.getElementById('del');
-const btn9 = document.getElementById('nine'); 
-const btn8 = document.getElementById('eight'); 
-const btn7 = document.getElementById('seven'); 
-const btn6 = document.getElementById('six'); 
-const btn5 = document.getElementById('five'); 
-const btn4 = document.getElementById('four'); 
-const btn3 = document.getElementById('three'); 
+const btn9 = document.getElementById('nine');
+const btn8 = document.getElementById('eight');
+const btn7 = document.getElementById('seven');
+const btn6 = document.getElementById('six');
+const btn5 = document.getElementById('five');
+const btn4 = document.getElementById('four');
+const btn3 = document.getElementById('three');
 const btn2 = document.getElementById('two'); 
 const btn1 = document.getElementById('one');
-const btn0 = document.getElementById('zero'); 
+const btn0 = document.getElementById('zero');
 const btnAdd = document.getElementById('add');
 const btnSub = document.getElementById('sub');
 const btnMul = document.getElementById('mul');
@@ -50,6 +50,8 @@ function listenersButtons() {
         }
     });
 
+
+   
     btn0.addEventListener('click', () => {
         if(currentNumberObj.innerHTML != '0') {
             currentNumberObj.innerHTML += '0';
@@ -63,7 +65,6 @@ function listenersButtons() {
         } else {
             currentNumberObj.innerHTML += '1';
         }
-        
     });
 
     btn2.addEventListener('click', () => {
@@ -231,7 +232,7 @@ function operate() {
         currentNumberObj.innerHTML = `${multiply(firstNumber, secondNumber)}`;
         deleteHistory();
     } else if (currentOperator == '/') {
-        currentNumberObj.innerHTML = `${divide(firstNumber, secondNumber)}`;
+        currentNumberObj.innerHTML = `${divide(firstNumber, secondNumber).toFixed(5)}`;
         deleteHistory();
     }
 }
