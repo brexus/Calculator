@@ -33,7 +33,7 @@ function updateCurrentNumber(a) {
 }
 
 function getCurrentNumber() {
-    return parseInt(currentNumberObj.innerHTML);
+    return parseFloat(currentNumberObj.innerHTML);
 }
 
 function listenersButtons() {
@@ -173,6 +173,11 @@ function listenersButtons() {
         currentOperator = '/';
         updateHistory(firstNumber, '/');
         shouldReplaceNumbers = true;
+    });
+
+    btnDot.addEventListener('click', () => {
+        currentNumberObj.innerHTML += '.';
+        shouldReplaceNumbers = false;
     });
 
     btnEqual.addEventListener('click', () => {
